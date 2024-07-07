@@ -1,0 +1,43 @@
+@extends('layout.giasu')
+
+@section('title', 'Chính sách học thử')
+
+@section('content')
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 bg-white pt-4 pb-4">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <h3 class="text-blue-900 mt-3 pb-4">Chính sách học thử</h3>
+                <p>Phụ huynh/học viên được quyền kiểm tra trình độ của gia sư qua 2 buổi học đầu tiên, sau 2 buổi này:</p>
+                <div class="row mt-4">
+                    <div class="col-1 text-center">
+                        -
+                    </div>
+                    <div class="col-11">
+                        Nếu không đồng ý nhận gia sư, phụ huynh/học viên không phải thanh toán học phí;
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-1 text-center">
+                        -
+                    </div>
+                    <div class="col-11">
+                        Nếu đồng ý và tiếp tục học, phụ huynh/học viên sẽ phải thanh toán học phí của cả 2 buổi này cho gia sư.
+                    </div>
+                </div>
+
+                <p class="mt-4"><b>Lưu ý:</b> Chỉ học sinh/học viên mới có quyền học thử, gia sư sẽ không có quyền dạy thử. Nếu sau khi làm hợp đồng mà gia sư tự ý bỏ lớp, gia sư sẽ bị phạt 100% giá trị hợp đồng. <a href="{{ route('/hopdongmau') }}">Xem hợp đồng mẫu</a>.</p>
+
+                <div class="mt-5">
+                    <a href="{{ route('/danhsachlopmoi') }}" class="btn btn-primary">Xem danh sách lớp mới</a>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+    <div class="col-2"></div>
+</div>
+@endsection
