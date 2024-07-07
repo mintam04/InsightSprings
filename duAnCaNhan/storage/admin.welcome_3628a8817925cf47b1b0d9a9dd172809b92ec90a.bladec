@@ -1,0 +1,20 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title', 'List phụ huynh'); ?>
+
+<?php $this->startSection('content'); ?>
+ <div class="content-body">
+ <div class="container-fluid">
+ <div class="row">
+ <div class="col-12">
+ <div class="card">
+ <div class="card-header">
+ <h1>Chào mừng bạn đến với trang Admin</h1>   
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layout.admin'); } ?>

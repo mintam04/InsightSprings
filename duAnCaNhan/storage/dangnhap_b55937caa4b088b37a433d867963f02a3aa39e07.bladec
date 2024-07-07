@@ -1,0 +1,68 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title', 'Đăng nhập tài khoản'); ?>
+
+<?php $this->startSection('content'); ?>
+
+
+<div class="container pb-5 pt-5">
+ <div class="row">
+ <div class="col-4"></div>
+ <div class="col-4 bg-white shadow pt-4 pb-4">
+ <h2 class="text-success text-center">Đăng nhập vào tài khoản</h2>
+ <hr class="mb-4 mt-3">
+ <form action="<?php echo \htmlentities(route('/post-user-dang-nhap')??'', ENT_QUOTES, 'UTF-8', false); ?>" method="post">
+ <div class="input-group mt-3">
+ <span class="input-group-text rounded-0 border-black"><i class="fa-regular fa-envelope"></i></span>
+ <input type="text" class="form-control rounded-0 border-black" placeholder="Nhập email" name="email">
+ </div>
+ <div class="input-group mt-3">
+ <span class="input-group-text rounded-0 border-black"><i class="fa-solid fa-key"></i></span>
+ <input type="password" class="form-control rounded-0 border-black" placeholder="Nhập mật khẩu" name="password">
+ </div>
+ <div class="row mt-4">
+ <div class="col-6">
+ <button class="btn btn-success" name="gui">Đăng nhập</button>
+ </div>
+ <div class="col-6 text-end">
+ <a href="">Quên mật khẩu</a>
+ </div>
+ </div>
+ </form>
+ <div class="row mt-4">
+ <div class="col-6 text-end">
+ <p>Bạn là thành viên mới?</p>
+ </div>
+ <div class="col-6">
+ <a href="<?php echo \htmlentities(route('/dangky')??'', ENT_QUOTES, 'UTF-8', false); ?>">Tạo tài khoản</a>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="col-4"></div>
+ </div>
+ <div class="row">
+ <div class="col-4"></div>
+ <div class="col-4">
+ <?php if(isset($_SESSION['errors']) && isset($_GET['msg'])): ?>
+ <div class="alert alert-danger">
+ <ul>
+ <?php $__currentLoopData = $_SESSION['errors']; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $error): $loop = $this->incrementLoopIndices();  ?>
+ <li><?php echo \htmlentities($error??'', ENT_QUOTES, 'UTF-8', false); ?></li>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </ul>
+ </div>
+ <?php endif; ?>
+
+ </div>
+ <div class="col-4"></div>
+
+ </div>
+
+
+</div>
+
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layout.giasu'); } ?>

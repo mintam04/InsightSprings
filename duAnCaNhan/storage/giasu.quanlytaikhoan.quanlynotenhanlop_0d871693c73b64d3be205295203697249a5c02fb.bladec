@@ -1,0 +1,55 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title', 'Quản lý note nhận lớp'); ?>
+<?php /* <?php 
+if (isset($course_teacher)) {
+ echo '<pre>';
+ print_r($course_teacher);
+ echo '</pre>';
+}
+
+
+ ?>*/ ?>
+<?php $this->startSection('content'); ?>
+
+ <div class="">
+ <h3>Quản lý note nhận lớp</h3>
+ <p>Chỉ hiển thị các note nhận lớp mà bạn đã tạo trong vòng 60 ngày.</p>
+
+ <p>Ồ! Hiện tại bạn chưa có note nhận lớp nào ở dạng đang chờ phản hồi.</p>
+ <p>Hãy đến trang danh sách lớp mới và tạo note nhận lớp. </p>
+
+ <button class="btn btn-primary">Đến trang danh sách lớp mới</button>
+
+ <?php $__currentLoopData = $course_teacher; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $cs): $loop = $this->incrementLoopIndices();  ?>
+ <div class="row mt-5">
+ <div class="col-1 text-end">
+ <i class="fa-solid fa-book text-secondary fa-sm mt-3"></i>
+ </div>
+ <div class="col-11">
+ <p>Lớp <?php echo \htmlentities($cs->code??'', ENT_QUOTES, 'UTF-8', false); ?>: <?php echo \htmlentities($cs->subject??'', ENT_QUOTES, 'UTF-8', false); ?> - Lớp <?php echo \htmlentities($cs->class??'', ENT_QUOTES, 'UTF-8', false); ?>, tại <?php echo \htmlentities($cs->address??'', ENT_QUOTES, 'UTF-8', false); ?>, <?php echo \htmlentities($cs->district??'', ENT_QUOTES, 'UTF-8', false); ?>, Hà Nội<p>
+ <p><?php echo \htmlentities($cs->updated_at??'', ENT_QUOTES, 'UTF-8', false); ?></p>
+ <p>Tình trạng: 
+ <b>
+ <?php if($cs->status_ct == 1): ?>
+ Bạn đã nhận lớp này
+ <?php else: ?>
+ <?php echo \htmlentities($cs->status??'', ENT_QUOTES, 'UTF-8', false); ?>
+
+ <?php endif; ?>
+ </b>
+ </p>
+ Xem  <a href="<?php echo \htmlentities(route('/danhsachlopmoi')??'', ENT_QUOTES, 'UTF-8', false); ?>">danh sách lớp mới</a>
+ </div>
+ </div>
+ 
+
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </div>
+
+
+<?php $this->stopSection(); ?>
+
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layout.quanlytaikhoan'); } ?>

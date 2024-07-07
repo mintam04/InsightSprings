@@ -1,0 +1,67 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title', 'Đăng ký thuê gia sư'); ?>
+
+<?php $this->startSection('content'); ?>
+
+<div class="container">
+ <div class="row">
+ <div class="col-3"></div>
+ <div class="col-6">
+ <h1>Đăng ký thuê gia sư</h1>
+ <hr>
+ <p>Số điện thoại hỗ trợ: 0967-6666-40</p>
+ <form action="<?php echo \htmlentities(route('/postparents')??'', ENT_QUOTES, 'UTF-8', false); ?>" method="post">
+ <div class="d-flex">
+ <div class="form-check me-3">
+ <input type="radio" class="form-check-input" id="radio1" name="sex_parents" value="Anh" checked>Anh 
+ <label class="form-check-label" for="radio1"></label>
+ </div>
+ <div class="form-check">
+ <input type="radio" class="form-check-input" id="radio1" name="sex_parents" value="Chị" checked>Chị
+ <label class="form-check-label" for="radio1"></label>
+ </div>
+ </div>
+
+ <input type="text" class="form-control mt-3 border-1 border-dark" placeholder="Họ và tên" name="name">
+ <input type="text" class="form-control mt-3 border-1 border-dark" placeholder="Số điện thoại" name="phone">
+ <input type="text" class="form-control mt-3 border-1 border-dark" placeholder="Số nhà, tên đường" name="address">
+ <input type="text" class="form-control mt-3 border-1 border-dark" placeholder="Ghi chú (không bắt buộc)" name="take_note">
+
+ <div class="text-end">
+ <button class="btn btn-primary mt-5" name="gui">Đăng ký ngay</button>
+ </div>
+ </form>
+ <hr>
+ <p>Sau khi bạn đăng ký, chúng tôi sẽ gọi lại cho bạn để trao đổi thêm những thông tin cần thiết khác. Tất cả thông tin của bạn sẽ được bảo mật.</p>
+ </div>
+ <div class="col-3"></div> 
+ </div>
+</div>
+<div class="row">
+ <div class="col-3"></div>
+ <div class="col-6">
+ <?php if(isset($_SESSION['errors']) && isset($_GET['msg'])): ?>
+ <div class="alert alert-danger">
+ <ul>
+ <?php $__currentLoopData = $_SESSION['errors']; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $error): $loop = $this->incrementLoopIndices();  ?>
+ <li><?php echo \htmlentities($error??'', ENT_QUOTES, 'UTF-8', false); ?></li>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ </ul>
+ </div>
+ <?php endif; ?>
+
+ </div>
+ <div class="col-3"></div>
+
+</div>
+
+
+
+ 
+
+<?php $this->stopSection(); ?>
+
+ 
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layout.trangchu'); } ?>
